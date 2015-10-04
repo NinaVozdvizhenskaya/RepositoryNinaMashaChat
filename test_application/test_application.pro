@@ -15,10 +15,16 @@ CONFIG   -= app_bundle
 TEMPLATE = app
 
 
-SOURCES += main.cpp \
-    myudp.cpp \
-    datagramsheader.cpp
+SOURCES += \    
+    main.cpp \
+    serverudp.cpp \
+    clientudp.cpp \
+    messageheader.cpp
 
 HEADERS += \
-    myudp.h \
-    datagramsheader.h
+    serverudp.h \
+    clientudp.h \
+    messageheader.h
+
+CONFIG += c++11
+QMAKE_CXXFLAGS += -std=c++11
