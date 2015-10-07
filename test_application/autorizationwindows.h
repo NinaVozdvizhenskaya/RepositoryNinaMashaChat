@@ -18,12 +18,12 @@ public:
     ~AutorizationWindows();
     QHostAddress get_server();
     int get_port();
-    QString get_nickneme();
+    QByteArray get_nickneme();
 
 
 
 signals:
-    void exit_(QHostAddress _server, int _port, QString _nick_name);
+    void exit_(QHostAddress _server, int _port, const QByteArray& _nick_name);
 
 private slots:
 
@@ -43,7 +43,7 @@ private:
 
     QWidget *parent;
     QHostAddress server;
-    QString nick_name;
+    QByteArray nick_name;
     int port;
     bool isServer;
 

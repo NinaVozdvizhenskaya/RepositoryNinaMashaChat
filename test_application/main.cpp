@@ -4,6 +4,8 @@
 #include <QApplication>
 #include "udpview.h"
 #include "autorizationwindows.h"
+#include "messageheader.h"
+#include <QDebug>
 
 class A{
 public:
@@ -21,6 +23,8 @@ QApplication a(argc, argv);
 AutorizationWindows autorization_window;
 UDPView chat_window;
 autorization_window.show();
+//chat_window.show();
+QObject::connect( &autorization_window, &AutorizationWindows::exit_,  &chat_window, &UDPView::show_);
 QObject::connect( &autorization_window, &AutorizationWindows::exit_,  &chat_window, &UDPView::show_);
 
 
@@ -45,7 +49,15 @@ return a.exec();
 //        ServerUDP server;
 //        server.readPendingDatagrams();
 
-//    }
+//    }*/
 
- //   return a.exec();
+//----------------------------------------------------------------------------------------------------
+//    Message message{Message::Type::TEXT_MESSAGE, QByteArray(QString{"Hello chat"}.toUtf8())};
+//    QByteArray serialized{message.serialize()};
+
+//    Message deserialized{serialized};
+
+//    qDebug() <<QString::fromUtf8(deserialized.getPayload().data(), deserialized.getPayload().size());
+//------------------------------------------------------------------------------------------------------
+ //   return 0;
 }

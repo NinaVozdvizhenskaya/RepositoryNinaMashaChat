@@ -9,9 +9,7 @@ AutorizationWindows::AutorizationWindows(QWidget *parent) :
     ui(new Ui::AutorizationWindows)
 
 {
-    parent = new QWidget;
-
-    port = 0;
+    parent = new QWidget;   
     ui->setupUi(this);
 
 }
@@ -31,7 +29,7 @@ int AutorizationWindows::get_port()
     return port;
 }
 
-QString AutorizationWindows::get_nickneme()
+QByteArray AutorizationWindows::get_nickneme()
 {
     return nick_name;
 }
@@ -69,14 +67,14 @@ void AutorizationWindows::on_server_editingFinished()
 
 void AutorizationWindows::on_nickname_editingFinished()
 {
-    nick_name = QString(ui->nickname->text());
+    nick_name = QByteArray(QString(ui->nickname->text()).toUtf8());
 }
 
 void AutorizationWindows::on_spinBox_editingFinished()
 {
     port= ui->spinBox->text().toInt();
     if(port>100 && isServer) {
-        qDebug()<<"set enable";
+        qDebug()<<"set enable" <<port;
         ui->connect->setEnabled(true);
     }
 

@@ -20,14 +20,14 @@ TARGET = btchat
 SOURCES += \    
     main.cpp \
     serverudp.cpp \
-    clientudp.cpp \
+   clientudp.cpp \
     messageheader.cpp \
     autorizationwindows.cpp \
     udpview.cpp
 
 HEADERS += \
     serverudp.h \
-    clientudp.h \
+   clientudp.h \
     messageheader.h \
     autorizationwindows.h \
     udpview.h

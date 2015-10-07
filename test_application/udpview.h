@@ -17,9 +17,10 @@ public:
     explicit UDPView(  QWidget *parent = 0);
     ~UDPView();
 public slots:
-     void set_input_message(QString mesa);
+     void set_input_message(QByteArray mesa, QString sender);
+     void set_new_user(QString messa, QString sender);
    //  void set_input_message_cl(QString mesa);
-    void show_(QHostAddress _server, int _port, QString _nick_name);
+    void show_(QHostAddress _server, int _port, QByteArray _nick_name);
 private slots:
     void on_SendButton_2_clicked();
 
