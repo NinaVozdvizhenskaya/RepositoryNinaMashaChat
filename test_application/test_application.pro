@@ -21,15 +21,20 @@ SOURCES += \
     main.cpp \
     serverudp.cpp \
     clientudp.cpp \
-    messageheader.cpp
+    messageheader.cpp \
+    autorizationwindows.cpp \
+    udpview.cpp
 
 HEADERS += \
     serverudp.h \
     clientudp.h \
-    messageheader.h
+    messageheader.h \
+    autorizationwindows.h \
+    udpview.h
 
 CONFIG += c++11
 QMAKE_CXXFLAGS += -std=c++11
 
 FORMS += \
-    udpchar.ui
+    autorizationwindows.ui \
+    udpview.ui
