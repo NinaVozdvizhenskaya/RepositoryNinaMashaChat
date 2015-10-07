@@ -1,47 +1,47 @@
 #ifndef MESSAGEHEADER_H
 #define MESSAGEHEADER_H
-#include <QTime>
 
-struct MessageHeader
+#include <QUuid>
+
+
+class Message
 {
-    enum typeMessage
+public:
+    enum class Type: quint8
     {
-        TEXT_MESSAGE , //текстовое сообщение
-        WARNING_MESSAGE,
-        ERROR_MESSAGE,
-        NOTIFICATION_MESSAGE,// уведомление
-        SYSTEM_MESSAGE,
-        AUTHORIZATION,
-        HEARTBEAT
+        TEXT_MESSAGE  = 0, //текстовое сообщение
+        WARNING_MESSAGE =1,
+        ERROR_MESSAGE =2,
+        NOTIFICATION_MESSAGE  =3,// уведомление
+        SYSTEM_MESSAGE =4,
+        AUTHORIZATION =5,
+        HEARTBEAT = 6
     };
 
 
-    unsigned char mesID;
-    int numberPart;
-    int tempPart;
-    typeMessage type;
 
 
+    explicit Message(const Type _type = Type::TEXT_MESSAGE,
+                     const QByteArray &_payload = "",
+                     const quint32 _partCount = 1,
+                     const quint32 _part = 0);
+    explicit Message(const QByteArray &_serialized);
+    QByteArray serialize() const;
 
-    explicit MessageHeader(unsigned char mID = 0,
-                  typeMessage type = TEXT_MESSAGE,
-                  int numPart = 0,
-                  int tempPart = 0 );
+    const QByteArray &getPayload() const {
+        return payload;
+    }
+    const Type& getType() const {
+        return type;
+    }
 
+private:
+    Type type;
+    QUuid uuid;
+    quint32 partCount;
+    quint32 part;
 
-     friend QDataStream &operator <<(QDataStream &s, const MessageHeader &message);
-
-
-};
-
-struct Message
-{
-    MessageHeader mesHeader;
-    QTime currentTime;
-    QString data;
-    explicit Message(MessageHeader _header, QTime _time, QString _data = "");
-    friend QDataStream &operator <<(QDataStream &s, const Message &m);
-
+    QByteArray payload;
 };
 
 #endif // MESSAGEHEADER_H

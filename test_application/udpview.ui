@@ -1,53 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>UDPView</class>
+ <widget class="QMainWindow" name="UDPView">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>535</width>
-    <height>485</height>
+    <width>524</width>
+    <height>414</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="horizontalLayoutWidget">
+   <widget class="QTextEdit" name="Users">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>10</y>
-      <width>501</width>
-      <height>80</height>
+      <x>370</x>
+      <y>90</y>
+      <width>141</width>
+      <height>201</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QCheckBox" name="checkBox">
-       <property name="text">
-        <string>server</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
    </widget>
    <widget class="QWidget" name="horizontalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>309</y>
+      <x>0</x>
+      <y>299</y>
       <width>511</width>
       <height>31</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
      <item>
-      <widget class="QLineEdit" name="MessagelineEdit"/>
+      <widget class="QLineEdit" name="MessagelineEdit_2"/>
      </item>
      <item>
-      <widget class="QPushButton" name="SendButton">
+      <widget class="QPushButton" name="SendButton_2">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="text">
         <string>Отправить</string>
        </property>
@@ -58,21 +52,21 @@
    <widget class="QWidget" name="horizontalLayoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>350</y>
+      <x>0</x>
+      <y>340</y>
       <width>511</width>
       <height>31</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <layout class="QHBoxLayout" name="horizontalLayout_5">
      <item>
-      <widget class="QLineEdit" name="IP_server"/>
+      <widget class="QLineEdit" name="IP_server_2"/>
      </item>
      <item>
-      <widget class="QLineEdit" name="portserver"/>
+      <widget class="QLineEdit" name="portserver_2"/>
      </item>
      <item>
-      <spacer name="horizontalSpacer">
+      <spacer name="horizontalSpacer_2">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -85,9 +79,31 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="ConnectButton">
+      <widget class="QPushButton" name="ConnectButton_2">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
        <property name="text">
         <string>Установить соединение</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>501</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_6">
+     <item>
+      <widget class="QCheckBox" name="checkBox_2">
+       <property name="text">
+        <string>server</string>
        </property>
       </widget>
      </item>
@@ -96,34 +112,11 @@
    <widget class="QTextEdit" name="ChatEdit">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>100</y>
+      <x>10</x>
+      <y>90</y>
       <width>351</width>
       <height>201</height>
      </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="Users">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>100</y>
-      <width>141</width>
-      <height>201</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>400</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Quit</string>
     </property>
    </widget>
   </widget>
@@ -132,8 +125,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>535</width>
-     <height>26</height>
+     <width>524</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>
