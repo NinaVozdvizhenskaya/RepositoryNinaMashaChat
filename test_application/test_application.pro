@@ -6,19 +6,30 @@
 
 QT       += core
 QT       += network
-QT       -= gui
+QT       += gui
+QT += widgets
 
 TARGET = QUdpSocket
 CONFIG   += console
 CONFIG   -= app_bundle
 
 TEMPLATE = app
+TARGET = btchat
 
 
-SOURCES += main.cpp \
-    myudp.cpp \
-    datagramsheader.cpp
+SOURCES += \    
+    main.cpp \
+    serverudp.cpp \
+    clientudp.cpp \
+    messageheader.cpp
 
 HEADERS += \
-    myudp.h \
-    datagramsheader.h
+    serverudp.h \
+    clientudp.h \
+    messageheader.h
+
+CONFIG += c++11
+QMAKE_CXXFLAGS += -std=c++11
+
+FORMS += \
+    udpchar.ui

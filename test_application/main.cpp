@@ -1,13 +1,33 @@
 #include <QCoreApplication>
-#include "myudp.h"
+#include "clientudp.h"
+#include "serverudp.h"
 
-int main(int argc, char *argv[])
+
+class A{
+public:
+    A() = default;
+    A(const A&) = delete;
+};
+
+
+int main(int argc, char* argv[])
 {
-    QCoreApplication a(argc, argv);
+QCoreApplication a(argc, argv);
 
-    MyUDP client;
+    qDebug()<<argv[1];
 
-   client.HelloUDP();
+    if(*argv[1] == '1')
+    {
+        qDebug()<<"client";
+        ClientUDP client;
+        client.sendDatagrams();
+    }else
+    {
+        qDebug()<<"server";
+        ServerUDP server;
+        server.readPendingDatagrams();
+
+    }
 
     return a.exec();
 }
